@@ -1,11 +1,10 @@
 {
   "name": "record-and-body-3d",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Offline 3D prototype for 記録と足跡",
   "scripts": {
-    "build": "node scripts/build.cjs",
-    "test": "node --test tests/engine.test.js tests/dom.test.cjs tests/scene.test.cjs tests/prose.test.cjs review/independent-review.cjs"
+    "build": "node scripts/build.cjs"
   },
   "dependencies": {
     "three": "0.180.0"

@@ -1,15 +1,37 @@
 // Presentation-only configuration. Narrative and deduction live in data.js/engine.js.
 export const SCENES = Object.freeze({
   village: {
-    asset: 'assets/models/village.glb.js',
-    camera: [17, 18, 23], target: [0, 2.1, 0], span: 15.1,
-    background: '#28342f', key: [-7, 16, 8], keyColor: '#ffe3ba',
+    asset: 'assets/models/village.glb.js?v=3',
+    camera: [21, 20, 27], target: [-0.45, 1.5, 0.5], span: 22.8,
+    background: '#303b33', key: [-7, 16, 8], keyColor: '#ffe3ba',
     fill: [4, 13, -6], fillColor: '#bad9e9',
-    anchors: ['v1', 'v2', 'v3', 'v5', 'v6', 'v8'],
-    documents: ['v4', 'v7'], roof: true,
-    // UI anchors only: original GLB mesh, materials and extras remain byte-identical.
-    anchorPositions: { v3: [0.35, 1.84, 2.78], v8: [3.60, 1.40, -2.30] },
-    disclaimer: '鐘と呼び声の順序は証言から確かめます。横戸へは染場の外側を回ります。屋根を外す操作は観察用です。',
+    // These are neutral places. Clues and testimony unlock in the game engine.
+    anchors: ['church', 'workshop', 'dye-yard', 'bakery', 'bell-tower', 'square', 'church-storage'],
+    documents: [], roof: true, defaultRoof: false, cover: true, defaultCover: false,
+    locationViews: { church: 'altar', 'church-storage': 'storage' },
+    locationActionLabels: { church: '教会へ入る', 'church-storage': '教会の物置へ入る' },
+    // The GLB supplies location_id/npc_id anchor nodes. No clue is moved in the UI.
+    npcs: [
+      { id: 'mira', name: 'ミラ', role: 'パン屋' },
+      { id: 'theo', name: 'テオ', role: '木工職人' },
+      { id: 'sera', name: 'セラ', role: '染物職人' },
+      { id: 'orn', name: 'オルン', role: '教会の管理人' },
+    ],
+    openingShots: {
+      arrival: { label: '収穫祭の村へ', camera: [21, 20, 27], target: [-0.45, 1.5, 0.5], span: 22.8, roof: false, cover: false },
+      church: { label: '小さな教会', camera: [-2.8, 7, 4.8], target: [-2.6, 1.3, -2.45], span: 6.9, roof: true, cover: false },
+      friend: { label: '旧友テオ', camera: [8.1, 4.35, 7.95], target: [2.48, 1.35, 0.15], span: 4.25, roof: false, cover: false },
+      caretaker: { label: '管理人オルン', camera: [3.54, 4.35, 7.92], target: [-1.48, 1.35, 0.24], span: 4.25, roof: false, cover: false },
+    },
+    viewpoints: [
+      { id: 'overview', label: '村の全景', camera: [21, 20, 27], target: [-0.45, 1.5, 0.5], span: 22.8, roof: false },
+      { id: 'altar', label: '教会の祭壇', camera: [-2.8, 7, 2], target: [-3.05, 1.4, -3.35], span: 4.5, roof: true },
+      { id: 'storage', label: '教会の物置', camera: [3.2, 6.1, 1.6], target: [-1.64, 1.15, -2.66], span: 3.8, roof: true },
+      { id: 'workshop', label: '窓と教会の横戸', camera: [7.8, 6, -2.65], target: [0, 1.3, -2.65], span: 7.4, roof: true },
+      { id: 'passage', label: '教会の横手', camera: [6.7, 7, 5.8], target: [0, 1, -2.65], span: 8.8, roof: true },
+      { id: 'belfry', label: '鐘楼', camera: [-8.2, 7.2, 4.6], target: [-2.6, 3.35, -3.66], span: 7.2, roof: false },
+    ],
+    disclaimer: '人物は調査時点の位置です。事件当時の所在は証言と物証で確かめます。視点の切替と屋根の取り外しは観察用で、手がかりの発見にはなりません。',
   },
   future: {
     asset: 'assets/models/future.glb.js',
@@ -18,6 +40,11 @@ export const SCENES = Object.freeze({
     fill: [-6, 5, 4], fillColor: '#ffe4c8',
     anchors: ['f1', 'f2', 'f3', 'f4', 'f7', 'f8'],
     documents: ['f5', 'f6'], roof: false,
+    viewpoints: [
+      { id: 'overview', label: '部屋の全景', camera: [11, 12, 15], target: [0, 1, -0.1], span: 11.7 },
+      { id: 'terminal', label: '応答端末', camera: [3.5, 5.8, 8.3], target: [-1.7, 1.45, -0.7], span: 5.9 },
+      { id: 'archive', label: '保管トレイ', camera: [9, 6.5, 7.7], target: [2.5, 1.45, -0.6], span: 6.7 },
+    ],
     disclaimer: 'この模型は説明用の配置です。空席は所在の証拠ではなく、開いたトレイは発見後の調査状態です。奥のガラス仕切りは通路ではありません。',
   },
 });
@@ -54,6 +81,34 @@ export function layoutMarkers(points, width, height) {
       a.y = clamp(a.y - uy * shift, edge, Math.max(edge, height - edge));
       b.x = clamp(b.x + ux * shift, edge, Math.max(edge, width - edge));
       b.y = clamp(b.y + uy * shift, edge, Math.max(edge, height - edge));
+    }
+  }
+  return out;
+}
+
+// Nameplates have wider footprints than numbered pins. Keep every named person
+// readable on a narrow screen and use a short leader when a label must move.
+export function layoutNameplates(points, width, height, pinLabels = []) {
+  const halfWidth = Math.min(45, width / 3), gap = 25;
+  const out = points.map(point => ({ ...point,
+    x: clamp(point.x, halfWidth + 4, Math.max(halfWidth + 4, width - halfWidth - 4)),
+    y: clamp(point.y - 8, 26, Math.max(26, height - 8)),
+  }));
+  for (let pass = 0; pass < 12; pass++) {
+    for (let i = 0; i < out.length; i++) {
+      const a = out[i];
+      for (const pin of pinLabels) {
+        if (Math.abs(a.x - pin.x) < halfWidth + 24 && Math.abs(a.y - 10 - pin.y) < 36) {
+          a.y = clamp(pin.y - 27, 26, Math.max(26, height - 8));
+        }
+      }
+      for (let j = 0; j < i; j++) {
+        const b = out[j];
+        if (Math.abs(a.x - b.x) < halfWidth * 2 + 4 && Math.abs(a.y - b.y) < gap) {
+          a.y = clamp(b.y - gap, 26, Math.max(26, height - 8));
+          if (Math.abs(a.y - b.y) < gap) a.x = clamp(b.x + halfWidth * 2 + 5, halfWidth + 4, Math.max(halfWidth + 4, width - halfWidth - 4));
+        }
+      }
     }
   }
   return out;

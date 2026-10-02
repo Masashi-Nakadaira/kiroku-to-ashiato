@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 800" role="img" aria-labelledby="title desc">
+<title id="title">二つの青い欠片の観察図</title><desc id="desc">祭壇の布の内側で見つかった欠片と、花盆の縁の溝で見つかった欠片を同じ拡大率で描いた図。片側に尖った突起と小さなくぼみがあり、それぞれの割れ目と細い白い釉薬の筋を見比べられる。</desc>
+<defs><linearGradient id="enamel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5aa9c8"/><stop offset=".55" stop-color="#24627d"/><stop offset="1" stop-color="#163951"/></linearGradient><pattern id="paper" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M0 23.5H24" stroke="#cfc5ac" stroke-opacity=".2"/></pattern><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-opacity=".12"/></filter></defs>
+<rect width="960" height="800" rx="24" fill="#eee8d9"/><rect width="960" height="800" rx="24" fill="url(#paper)"/>
+<text x="48" y="60" font-family="serif" font-size="27" fill="#302f27">青い欠片　観察図</text><text x="48" y="90" font-family="sans-serif" font-size="15" fill="#777365">同じ拡大率で、表面を上にして置いた状態</text>
+<path d="M480 125V473" stroke="#c5bba4" stroke-width="1"/>
+<g filter="url(#shadow)" stroke="#182f3a" stroke-width="3" stroke-linejoin="round">
+<path d="M172 187 L235 158 L307 188 L327 237 L302 250 L326 281 L297 295 L321 322 L296 348 L304 388 L236 417 L179 389 L153 319 L156 233 Z" fill="url(#enamel)"/>
+<path d="M674 237 L649 250 L673 281 L644 295 L668 322 L643 348 L651 388 L712 416 L774 395 L801 329 L789 261 L742 211 L696 202 Z" fill="url(#enamel)"/>
+</g>
+<path d="M327 237 L302 250 L326 281 L297 295 L321 322 L296 348 L304 388" fill="none" stroke="#b1bcbb" stroke-width="8" stroke-linejoin="round"/>
+<path d="M674 237 L649 250 L673 281 L644 295 L668 322 L643 348 L651 388" fill="none" stroke="#b1bcbb" stroke-width="8" stroke-linejoin="round"/>
+<path d="M187 228Q227 179 281 207M181 245L202 226M732 235Q766 263 773 306" fill="none" stroke="#a5d2de" stroke-opacity=".6" stroke-width="5" stroke-linecap="round"/>
+<path d="M172 305Q228 287 297 295M644 295Q714 303 791 278" fill="none" stroke="#e7e7d2" stroke-width="4" stroke-linecap="round"/><circle cx="217" cy="363" r="3" fill="#7498a4"/><circle cx="740" cy="345" r="2.5" fill="#b1c4c3"/>
+<text x="240" y="466" text-anchor="middle" font-family="serif" font-size="23" fill="#373c35">祭壇の布の内側</text><text x="720" y="466" text-anchor="middle" font-family="serif" font-size="23" fill="#373c35">花盆の縁の溝</text>
+<path d="M434 512H526M434 507V517M526 507V517" stroke="#555b50" stroke-width="2"/><text x="480" y="544" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#747567">拡大した形の記録（実寸ではありません）</text>
+<g><rect x="48" y="579" width="864" height="185" rx="12" fill="#e4dcc8" stroke="#c4bba4"/>
+<text x="280" y="609" text-anchor="middle" font-family="serif" font-size="20" fill="#373c35">台帳の杯底輪郭</text><text x="695" y="609" text-anchor="middle" font-family="serif" font-size="20" fill="#373c35">花盆の底の観察</text>
+<rect x="175" y="623" width="210" height="105" rx="3" fill="#f4eddb" stroke="#b9ad92"/><path d="M190 645H370M190 675H370M190 705H370" stroke="#c8bfa9" stroke-width="1"/><ellipse cx="280" cy="674" rx="72" ry="40" fill="none" stroke="#6b6a59" stroke-width="2.4"/>
+<rect x="514" y="623" width="362" height="105" rx="8" fill="#b99969" stroke="#775f40" stroke-width="5"/><path d="M528 647H862M528 672H862M528 700H862" stroke="#8f754e" stroke-width="1" opacity=".48"/>
+<ellipse cx="695" cy="674" rx="72" ry="40" fill="#736650" opacity=".13"/>
+<path d="M762.7 660.3 A72 40 0 1 0 762.7 687.7" fill="none" stroke="#665e4b" stroke-width="3.5" opacity=".6" stroke-linecap="round"/>
+<path d="M638 671L746 682M640 685L743 661M654 695L729 654M668 652L717 700" stroke="#6f7c4e" stroke-width="2" opacity=".8"/>
+<path d="M556 695L567 646M590 698L605 642M810 700L802 644M849 697L833 648" stroke="#667b47" stroke-width="3"/>
+<g fill="#ebe4c8" stroke="#a49569" stroke-width="1"><circle cx="567" cy="646" r="9"/><circle cx="605" cy="642" r="9"/><circle cx="802" cy="644" r="9"/><circle cx="833" cy="648" r="9"/></g>
+<path d="M766 674Q804 669 849 685" stroke="#574e3c" stroke-width="1.7" fill="none"/><path d="M849 681L858 685L853 692L846 688Z" fill="#276888" stroke="#254553" stroke-width="1"/>
+<text x="480" y="749" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#737568">輪郭は同じ縮尺。花盆の内側は茎が押し伏せられています</text></g></svg>
