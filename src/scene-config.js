@@ -1,14 +1,14 @@
 // Presentation-only configuration. Narrative and deduction live in data.js/engine.js.
 export const SCENES = Object.freeze({
   village: {
-    asset: 'assets/models/village.glb.js?v=3',
+    asset: 'assets/models/village.glb.js?v=4',
     camera: [21, 20, 27], target: [-0.45, 1.5, 0.5], span: 22.8,
     background: '#303b33', key: [-7, 16, 8], keyColor: '#ffe3ba',
     fill: [4, 13, -6], fillColor: '#bad9e9',
     // These are neutral places. Clues and testimony unlock in the game engine.
-    anchors: ['church', 'workshop', 'dye-yard', 'bakery', 'bell-tower', 'square', 'church-storage'],
+    anchors: ['church', 'workshop', 'dye-yard', 'bakery', 'bell-tower', 'square', 'church-storage', 'watermill', 'sluice'],
     documents: [], roof: true, defaultRoof: false, cover: true, defaultCover: false,
-    locationViews: { church: 'altar', 'church-storage': 'storage' },
+    locationViews: { church: 'altar', 'church-storage': 'storage', watermill: 'watermill', sluice: 'sluice' },
     locationActionLabels: { church: '教会へ入る', 'church-storage': '教会の物置へ入る' },
     // The GLB supplies location_id/npc_id anchor nodes. No clue is moved in the UI.
     npcs: [
@@ -16,6 +16,7 @@ export const SCENES = Object.freeze({
       { id: 'theo', name: 'テオ', role: '木工職人' },
       { id: 'sera', name: 'セラ', role: '染物職人' },
       { id: 'orn', name: 'オルン', role: '教会の管理人' },
+      { id: 'neri', name: 'ネリ', role: '粉ひき職人' },
     ],
     openingShots: {
       arrival: { label: '収穫祭の村へ', camera: [21, 20, 27], target: [-0.45, 1.5, 0.5], span: 22.8, roof: false, cover: false },
@@ -29,6 +30,8 @@ export const SCENES = Object.freeze({
       { id: 'storage', label: '教会の物置', camera: [3.2, 6.1, 1.6], target: [-1.64, 1.15, -2.66], span: 3.8, roof: true },
       { id: 'workshop', label: '窓と教会の横戸', camera: [7.8, 6, -2.65], target: [0, 1.3, -2.65], span: 7.4, roof: true },
       { id: 'passage', label: '教会の横手', camera: [6.7, 7, 5.8], target: [0, 1, -2.65], span: 8.8, roof: true },
+      { id: 'watermill', label: '水車小屋', camera: [-12, 6.5, 11.2], target: [-7.45, 1.1, 5.5], span: 6.8, roof: false },
+      { id: 'sluice', label: '取水口の水門', camera: [-5.65, 3.8, -.25], target: [-8.2, 1.43, 4.4], span: 2.5, roof: false },
       { id: 'belfry', label: '鐘楼', camera: [-8.2, 7.2, 4.6], target: [-2.6, 3.35, -3.66], span: 7.2, roof: false },
     ],
     disclaimer: '人物は調査時点の位置です。事件当時の所在は証言と物証で確かめます。視点の切替と屋根の取り外しは観察用で、手がかりの発見にはなりません。',

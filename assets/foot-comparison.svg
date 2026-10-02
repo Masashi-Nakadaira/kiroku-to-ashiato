@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 390" role="img" aria-labelledby="title desc">
+<title id="title">押し跡と足の写しの比較</title><desc id="desc">同じ縮尺で並べた台帳の足の輪郭と、花盆の押し跡。一か所の短い平らな縁も重なる。これだけで所有者や移動先は分からない。</desc>
+<defs><path id="foot" d="M0 -55C70 -55 99 -30 99 -13L99 13C99 35 70 55 0 55C-70 55 -99 30 -99 0C-99 -30 -70 -55 0 -55Z"/></defs>
+<rect width="960" height="390" rx="22" fill="#eee8d9"/>
+<text x="48" y="54" font-family="serif" font-size="27" fill="#302f27">輪郭を同じ縮尺で並べた記録</text>
+<text x="255" y="105" text-anchor="middle" font-family="serif" font-size="23" fill="#373c35">台帳の足の写し</text>
+<text x="705" y="105" text-anchor="middle" font-family="serif" font-size="23" fill="#373c35">花盆の押し跡</text>
+<rect x="72" y="127" width="366" height="164" rx="5" fill="#f5efdf" stroke="#b9ad92"/>
+<path d="M90 160H420M90 200H420M90 240H420M90 280H420" stroke="#d2c8b0"/>
+<use href="#foot" transform="translate(255 210)" fill="none" stroke="#676250" stroke-width="3"/>
+<rect x="522" y="127" width="366" height="164" rx="9" fill="#bfa376" stroke="#786343" stroke-width="7"/>
+<path d="M542 163H868M542 205H868M542 250H868" stroke="#987d55" opacity=".5"/>
+<use href="#foot" transform="translate(705 210)" fill="#796c50" fill-opacity=".2" stroke="#75684c" stroke-width="4"/>
+<path d="M622 214L779 201M629 231L766 183M640 186L762 242M670 164L735 255M554 258L568 154M836 262L825 154" stroke="#6a7549" stroke-width="3"/>
+<circle cx="568" cy="154" r="10" fill="#eee4c4" stroke="#a49770"/><circle cx="825" cy="154" r="10" fill="#eee4c4" stroke="#a49770"/>
+<text x="480" y="339" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#676759">内側の茎は押し伏せられ、外側の花は起きています</text>
+<text x="480" y="367" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#777568">輪郭の対応を記録した図です。人物や移動先の説明は含みません</text>
+</svg>

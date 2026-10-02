@@ -1,3 +1,4 @@
+import { applyInvestigationModelState } from './model-state.js';
 import { decodeModelPayload } from './model-codec.js';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -120,6 +121,7 @@ class SceneViewer {
     this.cinematicId = ''; this.returnView = null; this.coverOpen = false; this.hasCover = false;
     this.model.traverse(node => { if (node.userData.part === 'AltarCover') this.hasCover = true; });
     this.scene.add(this.model);
+    applyInvestigationModelState(this.model);
     const config = SCENES[id], saved = views.get(id);
     this.scene.background = new THREE.Color(config.background);
     this.key.color.set(config.keyColor); this.key.position.fromArray(config.key);
@@ -183,6 +185,7 @@ class SceneViewer {
       item.el.setAttribute('aria-pressed', String(selected));
       item.el.classList.toggle('is-seen', visited); item.el.classList.toggle('is-selected', selected);
     }
+    applyInvestigationModelState(this.model, next.investigationState || {});
     this.updateRoofButton(); this.updateCoverButton(); this.updateViewButtons(); this.resize();
     this.focusLocationRequest(next.focusLocation);
   }
@@ -244,7 +247,7 @@ class SceneViewer {
     const button = root?.querySelector('[data-view-control="cover"]');
     if (button) {
       button.setAttribute('aria-pressed', String(Boolean(this.coverOpen)));
-      button.textContent = this.coverOpen ? '祭壇の白布を戻す' : '祭壇の白布をめくる';
+      button.textContent = this.coverOpen ? '模型の白布を戻す' : '模型の白布をめくる';
       button.disabled = !this.hasCover || Boolean(this.cinematicId) || !this.active;
     }
   }
