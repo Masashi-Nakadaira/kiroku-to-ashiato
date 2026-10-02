@@ -169,3 +169,4 @@ body[data-screen="desk"]{overflow:hidden}
 .field-stage:has(.field-sheet.is-collapsed) .scene3d-mount{height:100%}.field-stage:has(.field-sheet.is-collapsed) .scene-map{width:min(calc((100dvh - 260px) * var(--map-scale)),calc(100vw - 440px))}
 @media(max-width:760px){.field-stage:has(.field-sheet.is-collapsed) .scene-map{width:min(calc(100vw - 20px),calc((100dvh - 315px) * var(--map-scale)))}}
 @media(max-height:540px) and (orientation:landscape){.field-stage:has(.field-sheet.is-collapsed) .scene-map{width:min(42vw,calc((100dvh - 155px) * var(--map-scale)))}}
+.field-stage .scene3d-wrap[data-view-state="error"] .scene3d-toolbar,.field-stage .scene3d-wrap[data-view-state="map"] .scene3d-toolbar{display:none}
