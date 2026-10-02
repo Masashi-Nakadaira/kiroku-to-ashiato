@@ -7,8 +7,8 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { SCENES, MIN_ZOOM, MAX_ZOOM, MIN_POLAR, MAX_POLAR, clamp, frustum, layoutMarkers, layoutNameplates } from './scene-config.js';
 
 const models = new Map(), views = new Map();
-let viewer = null, root = null, context = null, mode = '3d', failed = '', request = 0, focusKey = '', pendingLocationFocus = null, locationFocusSequence = 0;
-const BASE = new URL('.', document.currentScript?.src || location.href);
+let viewer = null, root = null, context = null, failed = '', request = 0, focusKey = '', pendingLocationFocus = null, locationFocusSequence = 0;
+const BASE = new URL(document.currentScript?.dataset.assetBase || '.', document.currentScript?.src || location.href);
 const make = (tag, cls, text = '') => { const el = document.createElement(tag); el.className = cls; el.textContent = text; return el; };
 const now = () => window.performance?.now() || Date.now();
 const isCinematic = next => typeof next?.cinematicShot === 'string' && Object.prototype.hasOwnProperty.call(SCENES[next?.caseId]?.openingShots || {}, next.cinematicShot);
@@ -43,8 +43,7 @@ function loadModel(id) {
           }
           if (node.userData.npc_id && !npcs.has(node.userData.npc_id)) npcs.set(node.userData.npc_id, node);
         });
-        // A missing optional marker must not disable the whole scene. The map
-        // remains complete, and both update() and draw() hide missing anchors.
+        // Missing optional markers are hidden by update() and draw().
         delete window.MysterySceneData[id];
         finish(null, { model, anchors, npcs });
       } catch (error) { finish(error); }
@@ -61,7 +60,7 @@ class SceneViewer {
     this.canvas = make('canvas', 'scene3d-canvas');
     this.canvas.tabIndex = 0;
     this.canvas.setAttribute('role', 'img');
-    this.canvas.setAttribute('aria-label', '回して調べる立体模型。矢印キーで回転、プラス・マイナスで拡大縮小、0で視点を戻します。丸い印で場所を選べます。');
+    this.canvas.setAttribute('aria-label', '回して調べる立体模型。矢印キーで回転、プラス・マイナスで拡大縮小、0またはダブルタップで全景に戻します。丸い印で場所を選べます。');
     this.canvas.setAttribute('aria-describedby', 'scene-controls-help');
     this.canvas.dataset.focusKey = 'scene-camera';
     this.element.append(this.canvas);
@@ -97,7 +96,27 @@ class SceneViewer {
       const actions = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down', '+': 'in', '=': 'in', '-': 'out', '0': 'reset', Home: 'reset' };
       if (actions[event.key] && !this.cinematicId) { event.preventDefault(); this.control(actions[event.key]); }
     });
-    this.canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); fail('3Dの描画が中断されました。見取り図と字幕で続けられます。'); });
+    // Keep a pointer-only way back to the overview after a location close-up,
+    // without restoring the removed camera toolbar. Drag/pinch are not taps.
+    this.canvas.addEventListener('dblclick', event => { if (!this.cinematicId) { event.preventDefault(); this.control('reset'); } });
+    let touchStart = null, lastTap = null;
+    this.canvas.addEventListener('pointerdown', event => {
+      if (event.pointerType !== 'touch') return;
+      if (!event.isPrimary) { touchStart = null; lastTap = null; return; }
+      touchStart = { id: event.pointerId, x: event.clientX, y: event.clientY, time: now() };
+    });
+    this.canvas.addEventListener('pointermove', event => {
+      if (touchStart?.id === event.pointerId && Math.hypot(event.clientX - touchStart.x, event.clientY - touchStart.y) > 8) { touchStart = null; lastTap = null; }
+    });
+    this.canvas.addEventListener('pointercancel', () => { touchStart = null; lastTap = null; });
+    this.canvas.addEventListener('pointerup', event => {
+      if (!touchStart || touchStart.id !== event.pointerId || this.cinematicId) return;
+      const tap = { x: event.clientX, y: event.clientY, time: now() }, quick = tap.time - touchStart.time < 250;
+      touchStart = null;
+      if (quick && lastTap && tap.time - lastTap.time < 350 && Math.hypot(tap.x - lastTap.x, tap.y - lastTap.y) < 24) { event.preventDefault(); this.control('reset'); lastTap = null; }
+      else lastTap = quick ? tap : null;
+    });
+    this.canvas.addEventListener('webglcontextlost', event => { event.preventDefault(); fail('3Dの描画が中断されました。再読み込みを試してください。'); });
     this.reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
     this.onMotionChange = () => { if (this.reducedMotion?.matches) this.finishTransition(); };
     this.reducedMotion?.addEventListener?.('change', this.onMotionChange);
@@ -167,7 +186,7 @@ class SceneViewer {
     }
     this.controls.enabled = !shotId;
     this.canvas.tabIndex = shotId ? -1 : 0;
-    this.canvas.setAttribute('aria-label', shotId ? `導入シーン：${config.openingShots[shotId].label}` : '回して調べる立体模型。矢印キーで回転、プラス・マイナスで拡大縮小、0で視点を戻します。丸い印で場所を選べます。');
+    this.canvas.setAttribute('aria-label', shotId ? `導入シーン：${config.openingShots[shotId].label}` : '回して調べる立体模型。矢印キーで回転、プラス・マイナスで拡大縮小、0またはダブルタップで全景に戻します。丸い印で場所を選べます。');
     this.element.classList.toggle('is-cinematic', Boolean(shotId));
     this.overlay.hidden = Boolean(shotId); this.lines.style.display = shotId ? 'none' : '';
     this.npcOverlay.hidden = Boolean(shotId);
@@ -352,7 +371,7 @@ class SceneViewer {
         }
       });
       if (this.transition) this.invalidate();
-    } catch (_) { fail('3Dを描画できませんでした。見取り図と字幕で調査を続けられます。'); }
+    } catch (_) { fail('3Dを描画できませんでした。再読み込みを試してください。'); }
   }
   pause() {
     this.active = false; cancelAnimationFrame(this.frame); this.frame = 0;
@@ -369,7 +388,6 @@ function status(state, message) {
   if (!root) return;
   root.dataset.viewState = state;
   const target = root.querySelector('.scene3d-status'); if (target) target.textContent = message;
-  root.querySelectorAll('[data-view-mode]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.viewMode === mode)));
   root.querySelectorAll('[data-view-control]').forEach(el => el.disabled = state !== 'ready' || isCinematic(context));
   const retry = root.querySelector('[data-view-retry]'); if (retry) retry.hidden = state !== 'error';
   root.querySelector('[data-scene-mount]')?.setAttribute('aria-busy', String(state === 'loading'));
@@ -385,21 +403,20 @@ async function mount(element, next) {
   if (!root || !SCENES[next?.caseId]) return;
   root.dataset.cinematic = String(isCinematic(next));
   if (pendingLocationFocus && pendingLocationFocus.caseId !== next.caseId) pendingLocationFocus = null;
-  if (mode === '2d') { status('map', isCinematic(next) ? '見取り図と字幕で導入を再生中。次へ進むか、調査を始められます。' : '見取り図で調査中。調査の進行は3Dと共通です。'); return; }
   if (failed) { status('error', failed); return; }
   const ticket = ++request;
-  status('loading', isCinematic(next) ? '導入の立体シーンを準備中… 字幕はそのまま読めます' : '立体模型を準備中… 待っている間も調査できます');
+  status('loading', isCinematic(next) ? '導入の立体シーンを準備中… 字幕はそのまま読めます' : '立体模型を準備中…');
   try {
     if (typeof WebGL2RenderingContext === 'undefined') throw new Error('webgl-unavailable');
     if (!viewer) viewer = new SceneViewer();
     const loaded = await loadModel(next.caseId);
-    if (ticket !== request || root !== element || mode !== '3d') return;
+    if (ticket !== request || root !== element) return;
     viewer.setModel(next.caseId, loaded);
     const mountPoint = element.querySelector('[data-scene-mount]');
     if (!mountPoint) return;
     mountPoint.append(viewer.element);
     viewer.active = true;
-    status('ready', isCinematic(next) ? '導入シーン · 字幕を読み、次へ進んでください' : 'ドラッグで回転 · ホイール／2本指で拡大 · 番号を押して場所を選ぶ');
+    status('ready', isCinematic(next) ? '導入シーン · 字幕を読み、次へ進んでください' : 'ドラッグで回転 · ホイール／2本指で拡大 · 模型上の丸い印を選んで調べる');
     viewer.update(next);
     if (pendingLocationFocus?.caseId === next.caseId && !isCinematic(next)) {
       const requested = typeof next.focusLocation === 'string' ? next.focusLocation : next.focusLocation?.id;
@@ -413,7 +430,7 @@ async function mount(element, next) {
     }
   } catch (_) {
     if (ticket !== request) return;
-    fail('3Dを表示できませんでした。見取り図と字幕・調査一覧で、そのまま最後まで遊べます。');
+    fail('3Dを表示できません。このブラウザーではWebGLが利用できないか、模型の読み込みに失敗しました。再読み込みするか、3D対応のブラウザーで開いてください。');
   }
 }
 
@@ -429,13 +446,11 @@ function focusLocation(id) {
 }
 
 document.addEventListener('click', event => {
-  const button = event.target.closest('[data-view-mode],[data-view-control],[data-view-retry]');
+  const button = event.target.closest('[data-view-retry]');
   if (!button || button.disabled || !root || !context || !root.contains(button)) return;
-  if (button.dataset.viewControl) { viewer?.control(button.dataset.viewControl); return; }
   const element = root, next = context;
   request++; viewer?.pause();
-  if (button.hasAttribute('data-view-retry')) { failed = ''; viewer?.dispose(); viewer = null; mode = '3d'; }
-  else mode = button.dataset.viewMode;
+  failed = ''; viewer?.dispose(); viewer = null;
   mount(element, next);
 });
 document.addEventListener('visibilitychange', () => { if (!document.hidden) viewer?.invalidate(); });
