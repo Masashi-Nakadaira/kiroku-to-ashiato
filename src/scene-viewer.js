@@ -61,7 +61,7 @@ class SceneViewer {
     this.canvas = make('canvas', 'scene3d-canvas');
     this.canvas.tabIndex = 0;
     this.canvas.setAttribute('role', 'img');
-    this.canvas.setAttribute('aria-label', '回して調べる立体模型。矢印キーで回転、プラス・マイナスで拡大縮小、0で視点を戻します。番号ボタンで場所を選べます。');
+    this.canvas.setAttribute('aria-label', '回して調べる立体模型。矢印キーで回転、プラス・マイナスで拡大縮小、0で視点を戻します。丸い印で場所を選べます。');
     this.canvas.setAttribute('aria-describedby', 'scene-controls-help');
     this.canvas.dataset.focusKey = 'scene-camera';
     this.element.append(this.canvas);
@@ -133,7 +133,7 @@ class SceneViewer {
       const el = make('button', 'scene3d-pin'); el.type = 'button';
       el.dataset.evidenceId = anchorId; el.dataset.locationId = anchorId; el.dataset.focusKey = `scene-${anchorId}`;
       const defaultNumber = /^.[0-9]+$/.test(anchorId) ? anchorId.slice(1) : index + 1;
-      const number = make('span', 'scene3d-pin-number', String(defaultNumber).padStart(2, '0'));
+      const number = make('span', 'scene3d-pin-dot'); number.setAttribute('aria-hidden', 'true');
       const label = make('span', 'scene3d-pin-label'); el.append(number, label);
       el.addEventListener('click', () => {
         if (!el.disabled && !el.hidden && !this.cinematicId && context?.caseId === this.id && typeof context.onEvidence === 'function') {
@@ -167,7 +167,7 @@ class SceneViewer {
     }
     this.controls.enabled = !shotId;
     this.canvas.tabIndex = shotId ? -1 : 0;
-    this.canvas.setAttribute('aria-label', shotId ? `導入シーン：${config.openingShots[shotId].label}` : '回して調べる立体模型。矢印キーで回転、プラス・マイナスで拡大縮小、0で視点を戻します。番号ボタンで場所を選べます。');
+    this.canvas.setAttribute('aria-label', shotId ? `導入シーン：${config.openingShots[shotId].label}` : '回して調べる立体模型。矢印キーで回転、プラス・マイナスで拡大縮小、0で視点を戻します。丸い印で場所を選べます。');
     this.element.classList.toggle('is-cinematic', Boolean(shotId));
     this.overlay.hidden = Boolean(shotId); this.lines.style.display = shotId ? 'none' : '';
     this.npcOverlay.hidden = Boolean(shotId);
@@ -179,7 +179,7 @@ class SceneViewer {
       item.el.disabled = !item.available || Boolean(shotId);
       item.line.style.display = item.el.hidden ? 'none' : '';
       item.label.textContent = config.locationActionLabels?.[item.id] || descriptor?.title || '';
-      item.number.textContent = String(descriptor?.number ?? item.defaultNumber).padStart(2, '0');
+      item.number.textContent = '';
       const visited = seen.includes(item.id), selected = next.selected === item.id;
       item.el.setAttribute('aria-label', `${config.locationActionLabels?.[item.id] || descriptor?.title || '場所'}${visited ? ' 調査済み' : ''}`);
       item.el.setAttribute('aria-pressed', String(selected));

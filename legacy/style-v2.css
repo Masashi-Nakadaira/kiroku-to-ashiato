@@ -50,3 +50,16 @@
 @media(max-width:600px){.edition-label{display:block;width:max-content;margin:12px auto 0}.scene3d-wrap .scene-caption{padding:13px 12px 9px;gap:8px}.scene3d-wrap .scene-caption h2{font-size:16px}.scene-mode button{font-size:10px;padding:8px 10px}.scene3d-status-row{padding:0 12px 10px;align-items:flex-start}.scene3d-status{font-size:10px}.scene3d-mount{height:380px}.scene3d-toolbar{padding:9px;gap:7px}.scene3d-toolbar button{font-size:10px;min-height:40px;padding:8px 9px}.scene3d-context{padding:10px 12px}.scene3d-context p{font-size:10px}.scene3d-documents{padding:10px 12px;gap:6px}.scene3d-documents>span{flex-basis:100%;margin-bottom:2px}.scene-document{font-size:10px}.scene3d-pin{width:44px;height:44px}.scene3d-pin-label{max-width:130px}}
 /* Keep the old-save migration notice legible on the dark title screen. */
 .title-screen .migration-notice{font-size:13px;color:#efe6d1;background:#344942;border:1px solid #899b8d;padding:15px 18px;margin:0 0 25px;text-align:left}
+/* stable in-place investigation and quiet, accessible location markers. */
+#app{overflow-anchor:none}
+.scene3d-pin,.scene3d-pin:hover,.scene3d-pin:focus-visible,.scene3d-pin.is-selected,
+.evidence-pin,.evidence-pin:hover,.evidence-pin:focus-visible,.evidence-pin.selected{width:44px;height:44px;min-height:44px;padding:0;background:transparent;border:0;box-shadow:none;transform:translate(-50%,-50%)}
+.scene3d-pin-dot,.map-pin-dot{position:absolute;left:50%;top:50%;width:12px;height:12px;transform:translate(-50%,-50%);border-radius:50%;background:#d9f0d9;border:2px solid #29473e;box-shadow:0 1px 4px #0008;pointer-events:none}
+.scene3d-pin:hover .scene3d-pin-dot,.scene3d-pin:focus-visible .scene3d-pin-dot,.scene3d-pin.is-selected .scene3d-pin-dot,
+.evidence-pin:hover .map-pin-dot,.evidence-pin:focus-visible .map-pin-dot,.evidence-pin[aria-pressed="true"] .map-pin-dot{background:#fff9d9;border-color:#936342;box-shadow:0 0 0 3px #f5ecd377}
+.scene3d-pin.is-seen:after,.evidence-pin.seen:after{display:none}
+.scene3d-pin-label,.map-pin-label{display:none;position:absolute;top:34px;left:50%;transform:translateX(-50%);width:max-content;max-width:160px;padding:5px 8px;background:#162d2eec;color:#fffce8;border-radius:3px;font-size:11px;font-weight:500;line-height:1.5;pointer-events:none;box-shadow:0 2px 5px #0003}
+.scene3d-pin:hover .scene3d-pin-label,.scene3d-pin:focus-visible .scene3d-pin-label,.scene3d-pin.is-selected .scene3d-pin-label,
+.evidence-pin:hover .map-pin-label,.evidence-pin:focus-visible .map-pin-label,.evidence-pin[aria-pressed="true"] .map-pin-label{display:block}
+.scene3d-pin:focus-visible,.evidence-pin:focus-visible{outline:2px solid #f8eac2;outline-offset:-4px}
+.evidence-pin:hover,.evidence-pin:focus-visible,.evidence-pin[aria-pressed="true"]{z-index:5}

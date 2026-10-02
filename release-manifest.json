@@ -4,7 +4,7 @@
     ".gitignore": "0a4b10d94374b94e4a083d7a6e9fedc9dae87718a251ea707f819d0e8623db39",
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "README.md": "d7826e0baf997626333ec40839b468604f090603069aa64b8661d463c5d96b1f",
-    "app.js": "7afa70325c0d2225ea41551dfba0cde4fccfd1f2ea13f09389048ca4436fe24e",
+    "app.js": "c1f89beee41977bb89a3e9a02b3df11b30e544d95675d6653440b5fca39678db",
     "art.js": "b098bd84fafd66d63d003c1fd79f8c2de6cb5e20ad96fece9703c10269e71520",
     "assets/altar-covered.png": "ebc24539c925dd9d4eefc681bf9af9cfe866806337b7fab593f5f94d7de25d91",
     "assets/altar-uncovered.png": "02275a88f13aba68c0df05fab82ee42679dafef84cf5f6aaa50270fd79fb11ae",
@@ -23,15 +23,15 @@
     "assets/village.svg": "b715d7bb309207720698333bcc801a8b680c4e2ce7fab08d2213a6a22a76c163",
     "data.js": "4b7e4c65ba7eb7a33f0b68f500da8a77dd4487337e2300cc6e46bd0d9581c3d7",
     "engine.js": "ac3c40a8fe212c4efc80b54f1738176cf7b502fc1fe358893376e32e99445494",
-    "future-v2.html": "acd033312b2c1ef619721abf400085c21b5b0b17cf5a4e235f01c60780af2517",
-    "index.html": "97839efa6675c21b5f00787c6445001a44f12e19f24e721368e72ce83fc88133",
-    "legacy/app-v2.js": "2b6d06d62e8d71b3fee6184396b59a0cd0f3dfe7eda907c4ad078c3f8b6e98f6",
+    "future-v2.html": "caf3bd57417ab1a0525d87317a2720aa1ac3952bdcbdb7cc068cb461a091eb6b",
+    "index.html": "3bcadc867188122720764ee365c6d6ed108207149123a33031a03218218e1b63",
+    "legacy/app-v2.js": "ba8a0d0831f687b1daaea4a07d73ea0a376087970922c31fcd524d7bcca8cdec",
     "legacy/data-v2.js": "31c1b426824792969a33e91b505d5bb6579614f0bd2d054b0ec391fae71047df",
     "legacy/engine-v2.js": "27063c1afa7dac9210d1b00fe213a0285b0b69c3e547c47fd3dbe7b3ba50aa85",
-    "legacy/style-v2.css": "fdace7b86b3b40af5a73eba12617a8cdf87b689c2df26a12d9091589f44b29b2",
+    "legacy/style-v2.css": "b50b17bdc9a2ba38c56af115b41e6258602da9d8735db086592a91ab9cc0b394",
     "package-lock.json": "b676e9493db6e988458b3491e21d31b0cbc5aae2239c2b1ac2c0edb24b16ece1",
     "package.json": "11192299e60f937f8a45200d6887885f0401c4a4bdad93850be5f0411d19cdcd",
-    "scene3d.js": "7e9a708a1ad3aa5f9885572c65393dd74b67abfbd47d4c18ce8ac055f1ecbb9d",
+    "scene3d.js": "0b213878c2b99aba0d4e6ebda3bd25c20f1a235f18fb9d5cd46dc4090ea80ef3",
     "scene3d.js.LEGAL.txt": "f117f28ec4fe16f58b02f5123abc7c78d369f87534df5e9ba30e7290cfa85209",
     "scripts/build.cjs": "43827ec3271318261c0b25727b14558013aca785ee79e879222f1f7397674840",
     "scripts/model-v3/build_chalice.py": "de72f4941519613e9b53afe6cb85364c6ba5461dc13fd8a042ef74426188588b",
@@ -48,8 +48,8 @@
     "src/model-codec.js": "0f1f5eb4868d19cb9075eb0476890fd0ac7701919fb1c791ed5808c9e171c1b6",
     "src/model-state.js": "288a3bbd3dd2246829a55c47568380efb2d32375b2dd1721b887b527fff6ac0d",
     "src/scene-config.js": "a5ed5a6a7d085a5ecf94cf4b451389cfec31d4fed62a064c793f8fd6e6811d28",
-    "src/scene-viewer.js": "94230aa8beae158ad7f2e054b2b0a892b62fa22c675e538aad19bcaca717ccd9",
-    "style.css": "bf21f10f54dea4f806dfb5ae404a22dc1bc06f1a3ca5d47f9fc5048ecfab331d",
+    "src/scene-viewer.js": "1c9294a1c8a9acc2f49d4351f6cfa342b9b5079534bfd9090ca8a1bb03e107a7",
+    "style.css": "5d9504a07a0bf16b60d57b428e986648435ddf91fb7b0b79562a177bb0f4a898",
     "vendor/FFLATE-LICENSE.txt": "9195ecc9d51bf865a3c6842c1f83b4b45f0c7a17f31fa0d8557bde528f10a8a9",
     "vendor/THREE-LICENSE.txt": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
   },
@@ -57,5 +57,6 @@
     "village": "gzip base64 wrapper + reconstruction .glb.gz",
     "reconstructedVillageSha256": "76453ff603d235f523c6b3dd2cf20c193fd8e4ec4616dd227c08ec6c3cbc8f4c",
     "reconstructedVillageBytes": 17677216
-  }
+  },
+  "uiRevision": "4.1"
 }
