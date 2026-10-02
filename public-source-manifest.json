@@ -1,0 +1,339 @@
+{
+  "uiVersion": 6,
+  "saveFormatVersion": 5,
+  "scenarioAndModelBaseline": "029e1dc822a44a72595740cff23183104c5322c4",
+  "files": [
+    {
+      "file": "app.js",
+      "bytes": 45428,
+      "sha256": "c7e5ab658a2c31d0c75fd78eb9f7f343776275211dc5f8f4385dd659cb659547"
+    },
+    {
+      "file": "art.js",
+      "bytes": 10547,
+      "sha256": "b098bd84fafd66d63d003c1fd79f8c2de6cb5e20ad96fece9703c10269e71520"
+    },
+    {
+      "file": "assets/altar-covered.png",
+      "bytes": 2360030,
+      "sha256": "ebc24539c925dd9d4eefc681bf9af9cfe866806337b7fab593f5f94d7de25d91"
+    },
+    {
+      "file": "assets/altar-uncovered.png",
+      "bytes": 2358931,
+      "sha256": "02275a88f13aba68c0df05fab82ee42679dafef84cf5f6aaa50270fd79fb11ae"
+    },
+    {
+      "file": "assets/enamel-detail.svg",
+      "bytes": 4664,
+      "sha256": "04655dcffb6a5f17db27b2ce1fcb4f4da21d1baf964e28be55e5f8b3603199ef"
+    },
+    {
+      "file": "assets/enamel-shards-only.svg",
+      "bytes": 2847,
+      "sha256": "2fc85151c2d02dbb004fd840bef81ab8d148300529f12ca47c5e400fe69232a9"
+    },
+    {
+      "file": "assets/foot-comparison.svg",
+      "bytes": 2114,
+      "sha256": "07187c23a5303b9c1ffc231b14e9516a36b5706365ce37da882a55db260f62a0"
+    },
+    {
+      "file": "assets/future-v2.svg",
+      "bytes": 3515,
+      "sha256": "5dd384b2edaa62a1172845cee251a37ce3d49fd8afa31c3446c8061747572db7"
+    },
+    {
+      "file": "assets/future-v5/chute-blocked.svg",
+      "bytes": 328594,
+      "sha256": "2297c836241ca6030ed94b1af7d81f20dfbccc5cd25024644a49d06283689b73"
+    },
+    {
+      "file": "assets/future-v5/chute-section.svg",
+      "bytes": 330390,
+      "sha256": "718060f50340be6d63540008af30bab7b2de434a654e189416985076cedf1d72"
+    },
+    {
+      "file": "assets/future-v5/chute-test.svg",
+      "bytes": 324802,
+      "sha256": "05ffafc0e563775121bd4d5b7b57a81a4c0c52100f921465c926899fa52fe48f"
+    },
+    {
+      "file": "assets/future-v5/contact-home-closed.svg",
+      "bytes": 459410,
+      "sha256": "3c664f20a2cb68f3e0d022df88c40f2f69ddc050627c0ef084da51bdb834ff88"
+    },
+    {
+      "file": "assets/future-v5/contact-home-open.svg",
+      "bytes": 507442,
+      "sha256": "7fb8935348c1e01208eff190441fca33a4398949d74f4495ed01d987ce6b1fd5"
+    },
+    {
+      "file": "assets/future-v5/contact-label.svg",
+      "bytes": 493746,
+      "sha256": "b8cab98ce98386a9675b3cefa35c75453b60b74317de2976a36996da4f73f948"
+    },
+    {
+      "file": "assets/future-v5/contact-open-one.svg",
+      "bytes": 507390,
+      "sha256": "878ff7c4cca4547d5a8b52e96c2de5e7bb1baab3fe39b1b2f51977e7940843fa"
+    },
+    {
+      "file": "assets/future-v5/contact-zero.svg",
+      "bytes": 457886,
+      "sha256": "852cf0acb4eaeaa2d4d95150b773f05a95d4cab8b26b9f36af451c6c49d8555d"
+    },
+    {
+      "file": "assets/future-v5/disc-compare.svg",
+      "bytes": 100806,
+      "sha256": "9cad48c4000f637dec6a0ed9af5fabf88934d9df743a3d492f9cde663b47aa7a"
+    },
+    {
+      "file": "assets/future-v5/drawer-empty.svg",
+      "bytes": 324358,
+      "sha256": "807d3406bbb13798bb8f64583ed9b4d8aa379a98d69245c5fd4d3a000e2b23e2"
+    },
+    {
+      "file": "assets/future-v5/drawer-open.svg",
+      "bytes": 324586,
+      "sha256": "d86e3ff4e723b4491210abad4b7b228ee23c25c08a70f3efc95197855d00a5b2"
+    },
+    {
+      "file": "assets/future-v5/drawer-seal.svg",
+      "bytes": 323038,
+      "sha256": "1e19b61242a135b12a0c8429bccdf144a7f57858cfa1ce0e81e5ed4fe2a4c3f7"
+    },
+    {
+      "file": "assets/future-v5/original-photo.svg",
+      "bytes": 434762,
+      "sha256": "c9161154cbf01ffef95fa0fcd4379baa94df20a2cb2bc4b19e6c8dc3fba11048"
+    },
+    {
+      "file": "assets/future-v5/reader.svg",
+      "bytes": 400346,
+      "sha256": "fca8721ecd8d0724118457501e71e2c6b269af0083793c279a21517ca2dab9bf"
+    },
+    {
+      "file": "assets/future-v5/recovered-disc.svg",
+      "bytes": 305730,
+      "sha256": "cc1048743e42494b0e7d90fad2797f391c1cb67594779590c5e87a50abaa944e"
+    },
+    {
+      "file": "assets/future-v5/tools.svg",
+      "bytes": 330878,
+      "sha256": "53f477ad35116ec2d2acf27102572a0beb58ccc1ed170659155c18a18f22c2d2"
+    },
+    {
+      "file": "assets/future-v5/tray-closed.svg",
+      "bytes": 422358,
+      "sha256": "f407c7e4d1aa18ad9a4ed1c172ff9cb512e2c85ae93fd75f8ba3aad257fef1bf"
+    },
+    {
+      "file": "assets/future-v5/tray-open-one.svg",
+      "bytes": 455218,
+      "sha256": "01b7329b8b13bdad49dd92a249ab48cc5a826658955699098e167782ad2db99b"
+    },
+    {
+      "file": "assets/future-v5/tray-open-zero.svg",
+      "bytes": 455078,
+      "sha256": "eb82170c81312d096f39526a5509e86a19846dc653a2fc2851757f8c7f99e699"
+    },
+    {
+      "file": "assets/future-v5/tray-open.svg",
+      "bytes": 455218,
+      "sha256": "01b7329b8b13bdad49dd92a249ab48cc5a826658955699098e167782ad2db99b"
+    },
+    {
+      "file": "assets/future.svg",
+      "bytes": 3979,
+      "sha256": "a2fc1f4d2002c4f5751a4e337eff1f719c9df1cfacee221710ec527815574c80"
+    },
+    {
+      "file": "assets/models/future-v2.glb.gz",
+      "bytes": 1413092,
+      "sha256": "4604ea5bef6decd78aaed21c58329925b35fc69f36723bdbee1bb6571a1fee81"
+    },
+    {
+      "file": "assets/models/future-v2.glb.js",
+      "bytes": 1884324,
+      "sha256": "fca342ed2819810c3539d961c2ad3f333806686ae0d930310eac41c98d925f6e"
+    },
+    {
+      "file": "assets/models/future.glb.gz",
+      "bytes": 1125615,
+      "sha256": "5d2d84e13ae289523d58f16a625dd882c3c5d03dd81f07c042cb52b2a28dc39e"
+    },
+    {
+      "file": "assets/models/future.glb.js",
+      "bytes": 1501017,
+      "sha256": "aeaadc882bdffbf4af6473fc7dba8b67dd6de6cdc43a3347b8d971f73fed3df8"
+    },
+    {
+      "file": "assets/models/village.glb.gz",
+      "bytes": 3732677,
+      "sha256": "86d823492c13dbbe8c8441cf1623510aa457b1443e0e1c95af47d00b2a8d218a"
+    },
+    {
+      "file": "assets/models/village.glb.js",
+      "bytes": 4977103,
+      "sha256": "30ca528be17ab91f809473a52c05fbac4bf1d04c83b188f0eb2ef66a2beb81b7"
+    },
+    {
+      "file": "assets/sluice-closed.png",
+      "bytes": 1645112,
+      "sha256": "0d56dfa0abe43953253476a77237a3a372edf771fd3d90594fa72c581657f357"
+    },
+    {
+      "file": "assets/sluice-open.png",
+      "bytes": 1644211,
+      "sha256": "121dcf5370175a3c68c9dbd1fe2202db29b854ee1ece5202bd58b65c9f325e4a"
+    },
+    {
+      "file": "assets/sluice-raised.png",
+      "bytes": 1640717,
+      "sha256": "7a53a3044cb1a3b421abe73c4551dd5c8699ba1bec870becfff22d7a44a5aaa4"
+    },
+    {
+      "file": "assets/sluice-stop-removed.png",
+      "bytes": 1643568,
+      "sha256": "166819dcdae57858f5109eab678d132dbabf5ed80e361eff4154a07d7a5ab311"
+    },
+    {
+      "file": "assets/village.svg",
+      "bytes": 16188,
+      "sha256": "b715d7bb309207720698333bcc801a8b680c4e2ce7fab08d2213a6a22a76c163"
+    },
+    {
+      "file": "data.js",
+      "bytes": 153524,
+      "sha256": "35f0908e7d54681a209f5e6289d990afeff9298817b702bf740e49bad8fb153d"
+    },
+    {
+      "file": "engine.js",
+      "bytes": 15149,
+      "sha256": "8cc846cbe5313e02f8f364c9b2bf8b119b39cab377cf804278934f76687c32d2"
+    },
+    {
+      "file": "future-v2.html",
+      "bytes": 1057,
+      "sha256": "5e66e0d2a55c5ad8f49ee0dc154470719d5f773a190d20ed025d28141dd7f3d2"
+    },
+    {
+      "file": "index.html",
+      "bytes": 865,
+      "sha256": "07ffbec8a86676e502fdbe4a9b9f58d17eeb3d3e01d08779f28ef43db961e5eb"
+    },
+    {
+      "file": "legacy/app-v2.js",
+      "bytes": 36037,
+      "sha256": "3bf3585eb9b7d2cf5299013075ca8eac598c6879f1f625f13c6f156c46abfd81"
+    },
+    {
+      "file": "legacy/data-v2.js",
+      "bytes": 35591,
+      "sha256": "31c1b426824792969a33e91b505d5bb6579614f0bd2d054b0ec391fae71047df"
+    },
+    {
+      "file": "legacy/engine-v2.js",
+      "bytes": 7188,
+      "sha256": "27063c1afa7dac9210d1b00fe213a0285b0b69c3e547c47fd3dbe7b3ba50aa85"
+    },
+    {
+      "file": "legacy/style-v2.css",
+      "bytes": 36852,
+      "sha256": "b50b17bdc9a2ba38c56af115b41e6258602da9d8735db086592a91ab9cc0b394"
+    },
+    {
+      "file": "scene3d.js",
+      "bytes": 624681,
+      "sha256": "5b943fb5920bed7d5c6ad4083fd9ec72abc4f76a478aa1d97051b13fb91aa19a"
+    },
+    {
+      "file": "scene3d.js.LEGAL.txt",
+      "bytes": 428,
+      "sha256": "f117f28ec4fe16f58b02f5123abc7c78d369f87534df5e9ba30e7290cfa85209"
+    },
+    {
+      "file": "style.css",
+      "bytes": 64927,
+      "sha256": "4528acd5339be8fef991925385209b4fbfbe9f740a12c582f20d1dcfcb37a031"
+    },
+    {
+      "file": "vendor/FFLATE-LICENSE.txt",
+      "bytes": 1068,
+      "sha256": "9195ecc9d51bf865a3c6842c1f83b4b45f0c7a17f31fa0d8557bde528f10a8a9"
+    },
+    {
+      "file": "vendor/THREE-LICENSE.txt",
+      "bytes": 1081,
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    },
+    {
+      "file": ".gitignore",
+      "bytes": 105,
+      "sha256": "cb9be101adb735d43dc619132682365367cdefb26a5bde0a9307d69968487240"
+    },
+    {
+      "file": "package-lock.json",
+      "bytes": 33536,
+      "sha256": "f80ff1d06edf0789b92e93e05cc4a613c512d7296ef97f45462a2bae960e758a"
+    },
+    {
+      "file": "scripts/build.cjs",
+      "bytes": 1494,
+      "sha256": "3858fa8e27fc23f3e5ddd4778fc8e0b9f34a1d3797c9ef2994df7ad097686121"
+    },
+    {
+      "file": "scripts/serve.cjs",
+      "bytes": 1056,
+      "sha256": "5fa4573f7f89ba3e12d1cfe8c691098ae67741a4328ad6dbfb66b8fd429c7306"
+    },
+    {
+      "file": "src/model-codec.js",
+      "bytes": 1840,
+      "sha256": "0f1f5eb4868d19cb9075eb0476890fd0ac7701919fb1c791ed5808c9e171c1b6"
+    },
+    {
+      "file": "src/model-state.js",
+      "bytes": 3426,
+      "sha256": "deea8ee720488e5a1c84ece5fb4976634693a698827668b86cf7eb6cc31fe50c"
+    },
+    {
+      "file": "src/scene-config.js",
+      "bytes": 8761,
+      "sha256": "3e6fb4ede792850195716817d358c999c0da66396f8d193134c1c250b53194e7"
+    },
+    {
+      "file": "src/scene-viewer.js",
+      "bytes": 28158,
+      "sha256": "1c9294a1c8a9acc2f49d4351f6cfa342b9b5079534bfd9090ca8a1bb03e107a7"
+    },
+    {
+      "file": "README.md",
+      "bytes": 2154,
+      "sha256": "4c1b7b34517a1a4f2a0d8da2b3350d3766d2a6023687a4b283631519c4026ab4"
+    },
+    {
+      "file": "package.json",
+      "bytes": 422,
+      "sha256": "e59459e4ea71da6045db79260b7c19ce714bb539015271714eebf6370f683e08"
+    },
+    {
+      "file": "docs/ui-changes.md",
+      "bytes": 1556,
+      "sha256": "d13474c89072702d33b92f185f492f93ad9b6993743cd0f569c31aca2ed42dbd"
+    },
+    {
+      "file": "tests/ui-smoke.test.cjs",
+      "bytes": 2093,
+      "sha256": "3395ae47561ef81f3e47bb9ad2e04cae3c43c160d7fac8e9c35ededa3ea72595"
+    }
+  ],
+  "verification": {
+    "regressionTests": "111 passed",
+    "publicSmokeTests": "2 passed",
+    "visualUI": "2D fallback and responsive interactions checked",
+    "actual3D": "not visually verified; cloud browser WebGL disabled"
+  },
+  "note": "This manifest omits its own digest to avoid self-reference. Full scenario-solution tests and private review files are not published."
+}
