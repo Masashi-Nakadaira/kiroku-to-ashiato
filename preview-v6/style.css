@@ -190,3 +190,5 @@ body[data-screen="desk"]{overflow:hidden}
  .field-stage .scene3d-status-row{left:12px;right:12px;top:12px;max-width:none}.field-stage [data-view-retry]{min-height:44px;font-size:12px}
 }
 @media(max-height:540px) and (orientation:landscape){.field-stage .scene3d-status-row{right:52%;top:12px}.field-stage .scene3d-mount{inset:0 auto 0 0;width:50%;height:100%}}
+/* A 320px viewport with a classic scrollbar has only 305px of content width. */
+body[data-screen="title"]{min-width:0}
