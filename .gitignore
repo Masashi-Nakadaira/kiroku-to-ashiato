@@ -1,3 +1,3 @@
 node_modules/
 # Reconstructed by npm run build from the lossless published .glb.gz.
-/assets/models/village.glb
+/assets/models/*.glb

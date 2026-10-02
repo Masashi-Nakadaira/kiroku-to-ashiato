@@ -111,3 +111,7 @@
 .evidence-pin:hover .map-pin-label,.evidence-pin:focus-visible .map-pin-label,.evidence-pin[aria-pressed="true"] .map-pin-label{display:block}
 .scene3d-pin:focus-visible,.evidence-pin:focus-visible{outline:2px solid #f8eac2;outline-offset:-4px}
 .evidence-pin:hover,.evidence-pin:focus-visible,.evidence-pin[aria-pressed="true"]{z-index:5}
+
+.comparison-originals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}.comparison-original{border:1px solid var(--rule);padding:16px;background:var(--paper-light)}.comparison-original h2{font-size:18px}.comparison-original p{font-size:13px}.comparison-original .sheet-top{margin-bottom:10px;padding-bottom:8px}.comparison-original img{width:100%;height:auto}@media(max-width:680px){.comparison-originals{grid-template-columns:1fr}.desk-tabs{flex-wrap:wrap}.desk-meta{flex-wrap:wrap}}
+
+.reconstruction-sheets{display:grid;gap:20px;align-content:start}

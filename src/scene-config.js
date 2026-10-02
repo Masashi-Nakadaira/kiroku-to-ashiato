@@ -1,5 +1,20 @@
 // Presentation-only configuration. Narrative and deduction live in data.js/engine.js.
 export const SCENES = Object.freeze({
+  'future-v2': {
+    asset: 'assets/models/future-v2.glb.js?v=5',
+    camera: [11, 12, 15], target: [0, 1, -0.1], span: 11.7,
+    background: '#20343c', key: [1, 9, 4], keyColor: '#d2efff',
+    fill: [-6, 5, 4], fillColor: '#ffe4c8',
+    anchors: ['f1', 'f2', 'f3', 'f4', 'f7', 'f8'],
+    documents: ['f5', 'f6'], roof: false,
+    viewpoints: [
+      { id: 'overview', label: '部屋の全景', camera: [11, 12, 15], target: [0, 1, -0.1], span: 11.7 },
+      { id: 'terminal', label: '応答端末', camera: [3.5, 5.8, 8.3], target: [-1.7, 1.45, -0.7], span: 5.9 },
+      { id: 'archive', label: '保管トレイ', camera: [9, 6.5, 7.7], target: [2.5, 1.45, -0.6], span: 6.7 },
+    ],
+    disclaimer: 'この模型は説明用の配置です。空席は所在の証拠ではなく、開いたトレイは発見後の調査状態です。奥のガラス仕切りは通路ではありません。',
+  },
+
   village: {
     asset: 'assets/models/village.glb.js?v=4',
     camera: [21, 20, 27], target: [-0.45, 1.5, 0.5], span: 22.8,
@@ -28,7 +43,7 @@ export const SCENES = Object.freeze({
       { id: 'overview', label: '村の全景', camera: [21, 20, 27], target: [-0.45, 1.5, 0.5], span: 22.8, roof: false },
       { id: 'altar', label: '教会の祭壇', camera: [-2.8, 7, 2], target: [-3.05, 1.4, -3.35], span: 4.5, roof: true },
       { id: 'storage', label: '教会の物置', camera: [3.2, 6.1, 1.6], target: [-1.64, 1.15, -2.66], span: 3.8, roof: true },
-      { id: 'workshop', label: '窓と教会の横戸', camera: [7.8, 6, -2.65], target: [0, 1.3, -2.65], span: 7.4, roof: true },
+      { id: 'workshop', label: '工房の窓', camera: [7.8, 6, -2.65], target: [0, 1.3, -2.65], span: 7.4, roof: true },
       { id: 'passage', label: '教会の横手', camera: [6.7, 7, 5.8], target: [0, 1, -2.65], span: 8.8, roof: true },
       { id: 'watermill', label: '水車小屋', camera: [-12, 6.5, 11.2], target: [-7.45, 1.1, 5.5], span: 6.8, roof: false },
       { id: 'sluice', label: '取水口の水門', camera: [-5.65, 3.8, -.25], target: [-8.2, 1.43, 4.4], span: 2.5, roof: false },
@@ -37,18 +52,34 @@ export const SCENES = Object.freeze({
     disclaimer: '人物は調査時点の位置です。事件当時の所在は証言と物証で確かめます。視点の切替と屋根の取り外しは観察用で、手がかりの発見にはなりません。',
   },
   future: {
-    asset: 'assets/models/future.glb.js',
+    asset: 'assets/models/future.glb.js?v=5',
     camera: [11, 12, 15], target: [0, 1, -0.1], span: 11.7,
     background: '#20343c', key: [1, 9, 4], keyColor: '#d2efff',
     fill: [-6, 5, 4], fillColor: '#ffe4c8',
-    anchors: ['f1', 'f2', 'f3', 'f4', 'f7', 'f8'],
-    documents: ['f5', 'f6'], roof: false,
-    viewpoints: [
-      { id: 'overview', label: '部屋の全景', camera: [11, 12, 15], target: [0, 1, -0.1], span: 11.7 },
-      { id: 'terminal', label: '応答端末', camera: [3.5, 5.8, 8.3], target: [-1.7, 1.45, -0.7], span: 5.9 },
-      { id: 'archive', label: '保管トレイ', camera: [9, 6.5, 7.7], target: [2.5, 1.45, -0.6], span: 6.7 },
+    anchors: ['archive', 'terminal', 'cart', 'bench', 'dispatch'],
+    documents: [], roof: false,
+    locationViews: { archive: 'archive', terminal: 'terminal', cart: 'cart', bench: 'bench', dispatch: 'dispatch' },
+    npcs: [
+      { id: 'io', name: 'イオ', role: '保存技師' },
+      { id: 'nagi', name: 'ナギ', role: '修復員' },
+      { id: 'yun', name: 'ユン', role: '展示担当' },
+      { id: 'rui', name: 'ルイ', role: '受付係' },
     ],
-    disclaimer: 'この模型は説明用の配置です。空席は所在の証拠ではなく、開いたトレイは発見後の調査状態です。奥のガラス仕切りは通路ではありません。',
+    openingShots: {
+      arrival: { label: '保存室へ', camera: [11, 12, 15], target: [0, 1, -.1], span: 11.7 },
+      archive: { label: '保管装置', camera: [7.2, 5.8, 6.8], target: [2.7, 1.3, -.15], span: 5.5 },
+      terminal: { label: '技師の机', camera: [-.3, 4.7, 7.4], target: [-2.3, 1.3, -.2], span: 5.0 },
+    },
+    viewpoints: [
+      { id: 'overview', label: '部屋の全景', camera: [11, 12, 15], target: [0, 1, -.1], span: 11.7 },
+      { id: 'terminal', label: '技師の机', camera: [-.5, 4.5, 7], target: [-2.3, 1.25, -.5], span: 4.5 },
+      { id: 'archive', label: '保管装置', camera: [6.4, 5.2, 5.5], target: [2.58, 1.45, -.3], span: 3.9 },
+      { id: 'cart', label: '共用の返却台車', camera: [5.2, 4.8, 6.2], target: [2.53, 1, 2.02], span: 3.1 },
+      { id: 'bench', label: '修復作業台', camera: [1, 4.6, 6], target: [-1.45, 1.05, 2.06], span: 3.4 },
+      { id: 'reader', label: '札の読取器', camera: [3.9, 3.2, 3.4], target: [.4, 1.31, 1.25], span: 2.5 },
+      { id: 'dispatch', label: '搬出待ち', camera: [-.5, 4, 6.3], target: [-3.4, 1.05, 2.1], span: 3.1 },
+    ],
+    disclaimer: '人物は調査時点の位置です。装置の状態は、行った操作に応じて変わります。視点の切替は観察用です。',
   },
 });
 
